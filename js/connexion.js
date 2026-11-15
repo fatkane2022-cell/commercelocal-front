@@ -1,107 +1,96 @@
+// JS des pages connexion et inscription (données simulées, pas de vrai serveur)
 
+// petite fonction pour afficher un message sous le formulaire
 function afficherMessage(zone, texte, type) {
   zone.textContent = texte;
   zone.className = "message " + type;
 }
 
+// vérifie qu'une adresse e-mail a la bonne forme
 function emailValide(email) {
-  return email.includes("@") && email.includes(".");
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// bouton Afficher / Masquer du mot de passe
-let boutonsVoir = document.querySelectorAll(".voir-mdp");
-for (let i = 0; i < boutonsVoir.length; i++) {
-  boutonsVoir[i].addEventListener("click", function () {
-    let champ = this.previousElementSibling;
-    if (champ.type === "password") {
-      champ.type = "text";
-      this.textContent = "Masquer";
-    } else {
-      champ.type = "password";
-      this.textContent = "Afficher";
-    }
-  });
-}
-
-// connexion
-let formConnexion = document.getElementById("form-connexion");
+// formulaire de connexion
+const formConnexion = document.getElementById("form-connexion");
 if (formConnexion) {
   formConnexion.addEventListener("submit", function (e) {
     e.preventDefault();
-    let email = document.getElementById("co-email");
-    let mdp = document.getElementById("co-mdp");
-    let message = document.getElementById("message-connexion");
+    const email = document.getElementById("co-email");
+    const mdp = document.getElementById("co-mdp");
+    const message = document.getElementById("message-connexion");
 
     email.classList.remove("champ-erreur");
     mdp.classList.remove("champ-erreur");
 
     if (!emailValide(email.value)) {
       email.classList.add("champ-erreur");
-      afficherMessage(message, "Adresse e-mail invalide.", "erreur");
-    } else if (mdp.value === "") {
+      afficherMessage(message, "Veuillez entrer une adresse e-mail valide.", "erreur");
+      return;
+    }
+    if (mdp.value.length === 0) {
       mdp.classList.add("champ-erreur");
       afficherMessage(message, "Veuillez entrer votre mot de passe.", "erreur");
-    } else {
-      afficherMessage(message, "Connexion réussie !", "succes");
-      setTimeout(function () {
-        window.location.href = "index.html";
-      }, 1000);
+      return;
     }
+
+    // on garde le nom de l'utilisateur pour les autres pages
+    localStorage.setItem("utilisateur", email.value);
+    afficherMessage(message, "Connexion réussie, redirection...", "succes");
+    setTimeout(function () { window.location.href = "index.html"; }, 1200);
   });
 }
 
-// choix du rôle : un seul bouton actif à la fois
-let roles = document.querySelectorAll(".role");
+// boutons client / commerçant / livreur : un seul sélectionné à la fois
+const boutonsRole = document.querySelectorAll(".role");
 let roleChoisi = "Client";
-for (let i = 0; i < roles.length; i++) {
-  roles[i].addEventListener("click", function () {
-    for (let j = 0; j < roles.length; j++) {
-      roles[j].classList.remove("actif");
-    }
-    this.classList.add("actif");
-    roleChoisi = this.textContent;
+boutonsRole.forEach(function (bouton) {
+  bouton.addEventListener("click", function () {
+    boutonsRole.forEach(function (b) { b.classList.remove("actif"); });
+    bouton.classList.add("actif");
+    roleChoisi = bouton.textContent;
   });
-}
+});
 
-// inscription
-let formInscription = document.getElementById("form-inscription");
+// formulaire d'inscription
+const formInscription = document.getElementById("form-inscription");
 if (formInscription) {
   formInscription.addEventListener("submit", function (e) {
     e.preventDefault();
-    let nom = document.getElementById("ins-nom");
-    let prenom = document.getElementById("ins-prenom");
-    let email = document.getElementById("ins-email");
-    let mdp = document.getElementById("ins-mdp");
-    let cgu = document.getElementById("ins-cgu");
-    let message = document.getElementById("message-inscription");
+    const nom = document.getElementById("ins-nom");
+    const prenom = document.getElementById("ins-prenom");
+    const email = document.getElementById("ins-email");
+    const mdp = document.getElementById("ins-mdp");
+    const cgu = document.getElementById("ins-cgu");
+    const message = document.getElementById("message-inscription");
 
-    let champs = [nom, prenom, email, mdp];
-    for (let i = 0; i < champs.length; i++) {
-      champs[i].classList.remove("champ-erreur");
+    [nom, prenom, email, mdp].forEach(function (c) { c.classList.remove("champ-erreur"); });
+
+    if (nom.value.trim() === "" || prenom.value.trim() === "") {
+      if (nom.value.trim() === "") nom.classList.add("champ-erreur");
+      if (prenom.value.trim() === "") prenom.classList.add("champ-erreur");
+      afficherMessage(message, "Veuillez entrer votre nom et votre prénom.", "erreur");
+      return;
     }
-
-    if (nom.value === "" || prenom.value === "") {
-      if (nom.value === "") nom.classList.add("champ-erreur");
-      if (prenom.value === "") prenom.classList.add("champ-erreur");
-      afficherMessage(message, "Veuillez remplir le nom et le prénom.", "erreur");
-    } else if (!emailValide(email.value)) {
+    if (!emailValide(email.value)) {
       email.classList.add("champ-erreur");
-      afficherMessage(message, "Adresse e-mail invalide.", "erreur");
-    } else if (mdp.value.length < 8) {
+      afficherMessage(message, "Veuillez entrer une adresse e-mail valide.", "erreur");
+      return;
+    }
+    if (mdp.value.length < 8) {
       mdp.classList.add("champ-erreur");
       afficherMessage(message, "Le mot de passe doit faire au moins 8 caractères.", "erreur");
-    } else if (!cgu.checked) {
-      afficherMessage(message, "Vous devez accepter les conditions d'utilisation.", "erreur");
-    } else {
-      afficherMessage(message, "Compte créé, bienvenue " + prenom.value + " !", "succes");
-      // le commerçant va sur son tableau de bord
-      let page = "index.html";
-      if (roleChoisi === "Commerçant") {
-        page = "dashboard-commercant.html";
-      }
-      setTimeout(function () {
-        window.location.href = page;
-      }, 1500);
+      return;
     }
+    if (!cgu.checked) {
+      afficherMessage(message, "Vous devez accepter les conditions d'utilisation.", "erreur");
+      return;
+    }
+
+    // le commerçant va sur son tableau de bord, les autres sur l'accueil
+    localStorage.setItem("utilisateur", prenom.value);
+    afficherMessage(message, "Bienvenue " + prenom.value + " ! Compte " + roleChoisi.toLowerCase() + " créé.", "succes");
+    const pageSuivante = roleChoisi === "Commerçant" ? "dashboard-commercant.html" : "index.html";
+    setTimeout(function () { window.location.href = pageSuivante; }, 1500);
   });
 }
