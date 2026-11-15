@@ -1,0 +1,368 @@
+/* Style des pages connexion et inscription (Personne 1) */
+
+/* couleurs reprises de la maquette Figma */
+:root {
+  --marron: #855541;
+  --marron-fonce: #5B4325;
+  --orange: #E8913F;
+  --texte: #202D36;
+  --gris: #8A9096;
+  --contour: #DDD5C6;
+  --fond: #FBFAF8;
+  --creme: #F4EEE6;
+  --blanc: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+}
+
+/* en-tête (à enlever quand le style.css de P3 sera prêt) */
+.entete {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  height: 64px;
+  padding: 0 32px;
+  background: var(--blanc);
+  border-bottom: 1px solid #EEE7DE;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--texte);
+  text-decoration: none;
+}
+.menu { display: flex; gap: 28px; }
+.menu a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1D65A9;
+  text-decoration: none;
+}
+.menu a:hover { text-decoration: underline; }
+.recherche {
+  flex: 1;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  background: var(--fond);
+  border: 1px solid var(--contour);
+  border-radius: 20px;
+}
+.recherche input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+}
+.icones { display: flex; gap: 28px; margin-left: auto; }
+.icones a { display: flex; }
+
+/* la page est coupée en deux : vidéo à gauche, formulaire à droite */
+.page-connexion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 64px);
+}
+
+/* partie gauche (marron si la vidéo ne charge pas) */
+.bienvenue {
+  position: relative;
+  overflow: hidden;
+  background: var(--marron);
+  color: var(--blanc);
+  display: flex;
+  align-items: center;
+  padding: 64px;
+}
+.video-fond {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* voile marron sur la vidéo pour garder la couleur de la maquette */
+.voile {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(133, 85, 65, 0.85), rgba(91, 67, 37, 0.70));
+}
+/* le texte passe devant la vidéo */
+.bienvenue-contenu {
+  position: relative;
+  z-index: 1;
+  max-width: 460px;
+}
+.bienvenue h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.bienvenue h1 span { color: var(--orange); }
+.bienvenue p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.92;
+  margin-bottom: 48px;
+}
+.avantages { list-style: none; }
+.avantages li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.avantages li + li { margin-top: 24px; }
+.pastille {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* partie droite avec la carte blanche au centre */
+.zone-carte {
+  background: var(--creme);
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carte {
+  width: 100%;
+  max-width: 460px;
+  background: var(--blanc);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(48, 39, 31, 0.06);
+  padding: 40px 36px;
+}
+.carte form { display: flex; flex-direction: column; }
+.carte h2 { font-size: 26px; font-weight: 700; letter-spacing: 0.5px; }
+.sous-titre {
+  font-size: 14px;
+  color: var(--gris);
+  margin: 6px 0 28px;
+}
+.lien-bas {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--gris);
+}
+.lien-bas a {
+  color: var(--marron-fonce);
+  font-weight: 600;
+  text-decoration: none;
+}
+.lien-bas a:hover { text-decoration: underline; }
+
+/* champs du formulaire */
+label, .label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--contour);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  margin-bottom: 18px;
+  transition: border-color 0.2s;
+}
+input::placeholder { color: #B3B7BB; }
+input:focus { outline: none; border-color: var(--marron); }
+input.champ-erreur { border-color: #C0392B; }
+
+.deux-colonnes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.case {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gris);
+  margin: 0;
+  cursor: pointer;
+}
+.case input { accent-color: var(--marron); width: 16px; height: 16px; }
+
+.ligne-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.ligne-options a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--marron-fonce);
+  text-decoration: none;
+}
+.ligne-options a:hover { text-decoration: underline; }
+
+/* boutons plein et contour */
+.bouton-plein,
+.bouton-contour {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.bouton-plein {
+  background: var(--marron-fonce);
+  color: var(--blanc);
+  border: none;
+}
+.bouton-plein:hover { background: #4A3620; }
+.bouton-contour {
+  background: var(--blanc);
+  color: var(--texte);
+  border: 1px solid var(--contour);
+}
+.bouton-contour:hover { border-color: var(--marron); }
+
+/* ligne avec "OU" au milieu */
+.separateur {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  color: var(--gris);
+  font-size: 12px;
+  font-weight: 600;
+}
+.separateur::before,
+.separateur::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--contour);
+}
+
+/* boutons client / commerçant / livreur */
+.choix-role {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.role {
+  height: 42px;
+  background: var(--blanc);
+  border: 1px solid var(--contour);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texte);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.role:hover { border-color: var(--marron); }
+.role.actif {
+  border-color: var(--marron);
+  background: #F6EFE9;
+  color: var(--marron-fonce);
+}
+
+/* message d'erreur ou de réussite affiché par le JS */
+.message { font-size: 13px; min-height: 18px; margin: 12px 0 8px; }
+.message.erreur { color: #C0392B; }
+.message.succes { color: #166852; }
+
+/* pied de page transparent */
+.pied {
+  background: transparent;
+  color: var(--gris);
+  border-top: 1px solid #EEE7DE;
+  padding: 48px 32px 24px;
+  font-size: 14px;
+}
+.pied-contenu {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+.pied-colonne { display: flex; flex-direction: column; gap: 10px; }
+.pied-logo { font-size: 18px; font-weight: 700; color: var(--texte); }
+.pied-titre { font-weight: 600; color: var(--texte); margin-bottom: 4px; }
+.pied a { color: var(--gris); text-decoration: none; }
+.pied a:hover { color: var(--marron); }
+.pied-bas {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #EEE7DE;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* tablette : la vidéo passe au-dessus du formulaire */
+@media (max-width: 960px) {
+  .page-connexion { grid-template-columns: 1fr; }
+  .bienvenue { padding: 48px 32px; }
+  .bienvenue h1 { font-size: 34px; }
+  .bienvenue p { margin-bottom: 28px; }
+  .bienvenue-contenu { max-width: none; }
+  .zone-carte { padding: 40px 24px; }
+  .recherche { display: none; }
+  .pied-contenu { grid-template-columns: 1fr 1fr; }
+}
+
+/* téléphone : tout sur une colonne */
+@media (max-width: 680px) {
+  .entete { padding: 0 16px; gap: 16px; }
+  .menu { display: none; }
+  .bienvenue { padding: 36px 20px; }
+  .bienvenue h1 { font-size: 28px; }
+  .avantages li + li { margin-top: 14px; }
+  .zone-carte { padding: 24px 16px; }
+  .carte { padding: 28px 20px; }
+  .deux-colonnes { grid-template-columns: 1fr; gap: 0; }
+  .role { font-size: 13px; }
+  .pied { padding: 36px 20px 20px; }
+  .pied-contenu { grid-template-columns: 1fr; gap: 24px; }
+}

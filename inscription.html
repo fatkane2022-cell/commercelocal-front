@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription - CommerceLocal+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/connexion.css">
+</head>
+<body>
+
+  <!-- en-tête avec le logo, le menu et la recherche -->
+  <header class="entete">
+    <a href="index.html" class="logo">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#855541"><path d="M11.2 22V13C11.2 8 8 4.5 2.5 4.5 2.5 10 5.8 13 11.2 13z"/><path d="M12.8 22v-6c0-4.5 3-7.5 8.7-7.5 0 5.2-3.2 7.5-8.7 7.5z"/></svg>
+      CommerceLocal+
+    </a>
+    <nav class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="commerces.html">Commerces</a>
+      <a href="categories.html">Catégories</a>
+    </nav>
+    <div class="recherche">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#586168" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input type="search" placeholder="Rechercher un commerce, un produit...">
+    </div>
+    <div class="icones">
+      <a href="#" title="Localisation"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#202D36" stroke-width="2"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></a>
+      <a href="#" title="Panier"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#202D36" stroke-width="2"><path d="M3 4h2l2.5 11h11L21 7H6.5"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></a>
+      <a href="connexion.html" title="Mon compte"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#202D36" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></a>
+    </div>
+  </header>
+
+  <main class="page-connexion">
+
+    <!-- partie gauche avec la vidéo et le message de bienvenue -->
+    <section class="bienvenue">
+      <video class="video-fond" autoplay muted loop playsinline>
+        <source src="videos/quartier.mp4" type="video/mp4">
+      </video>
+      <div class="voile"></div>
+
+      <div class="bienvenue-contenu">
+        <h1>Bienvenue dans votre <span>quartier</span> !</h1>
+        <p>Connectez-vous pour commander chez tous vos commerçants en un seul panier, ou ouvrez votre vitrine en quelques minutes.</p>
+        <ul class="avantages">
+          <li><span class="pastille">1</span> Un seul panier pour tout le quartier</li>
+          <li><span class="pastille">2</span> Un seul paiement sécurisé</li>
+          <li><span class="pastille">3</span> Un seul créneau de livraison ou de retrait</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- formulaire d'inscription -->
+    <div class="zone-carte">
+      <section class="carte">
+        <h2>INSCRIPTION</h2>
+        <p class="sous-titre">Créez votre compte en 1 minute.</p>
+
+        <form id="form-inscription">
+          <div class="deux-colonnes">
+            <div>
+              <label for="ins-nom">Nom</label>
+              <input type="text" id="ins-nom" placeholder="Dupont">
+            </div>
+            <div>
+              <label for="ins-prenom">Prénom</label>
+              <input type="text" id="ins-prenom" placeholder="Léa">
+            </div>
+          </div>
+
+          <label for="ins-email">Adresse e-mail</label>
+          <input type="email" id="ins-email" placeholder="exemple@mail.fr">
+
+          <label for="ins-mdp">Mot de passe</label>
+          <input type="password" id="ins-mdp" placeholder="8 caractères minimum">
+
+          <p class="label">Je suis</p>
+          <div class="choix-role">
+            <button type="button" class="role actif">Client</button>
+            <button type="button" class="role">Commerçant</button>
+            <button type="button" class="role">Livreur</button>
+          </div>
+
+          <label class="case"><input type="checkbox" id="ins-cgu"> J'accepte les conditions d'utilisation</label>
+
+          <p class="message" id="message-inscription"></p>
+          <button type="submit" class="bouton-plein">Créer mon compte</button>
+        </form>
+
+        <p class="lien-bas">Déjà un compte ? <a href="connexion.html">Se connecter</a></p>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- pied de page -->
+  <footer class="pied">
+    <div class="pied-contenu">
+      <div class="pied-colonne">
+        <p class="pied-logo">CommerceLocal+</p>
+        <p>Tous les commerçants de votre quartier, en un seul panier.</p>
+      </div>
+      <div class="pied-colonne">
+        <p class="pied-titre">Découvrir</p>
+        <a href="index.html">Accueil</a>
+        <a href="commerces.html">Commerces</a>
+        <a href="categories.html">Catégories</a>
+      </div>
+      <div class="pied-colonne">
+        <p class="pied-titre">Mon compte</p>
+        <a href="connexion.html">Se connecter</a>
+        <a href="inscription.html">Créer un compte</a>
+        <a href="#">Ouvrir ma vitrine</a>
+      </div>
+      <div class="pied-colonne">
+        <p class="pied-titre">Aide</p>
+        <a href="#">Contact</a>
+        <a href="#">Conditions d'utilisation</a>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+    <p class="pied-bas">© 2026 CommerceLocal+ — Projet ECE B2 Data &amp; IA</p>
+  </footer>
+
+  <script src="js/connexion.js"></script>
+</body>
+</html>
