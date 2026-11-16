@@ -1,0 +1,309 @@
+/* ===== Couleurs de la maquette (reprises de Personne 1) ===== */
+:root {
+    --marron: #855541;
+    --marron-fonce: #5B4325;
+    --orange: #E8913F;
+    --texte: #202D36;
+    --gris: #8A9096;
+    --contour: #DDD5C6;
+    --fond: #FBFAF8;
+    --creme: #F4EEE6;
+    --blanc: #FFFFFF;
+    --bleu: #1D65A9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+}
+
+/* ===== Structure : menu à gauche, contenu à droite ===== */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.menu-lateral {
+    width: 220px;
+    flex-shrink: 0;
+    background: var(--marron-fonce);
+    color: white;
+    padding: 24px 16px;
+}
+
+.logo-dash {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 8px 24px;
+}
+
+.nav-item {
+    display: block;
+    color: #E9DFD2;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 12px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.nav-item.actif {
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+}
+
+.contenu {
+    flex: 1;
+    min-width: 0;
+    padding: 32px;
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--marron-fonce);
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--marron-fonce);
+    margin-bottom: 14px;
+}
+
+.commerce {
+    color: var(--gris);
+    margin: 4px 0 28px;
+}
+
+.bloc {
+    margin-top: 32px;
+}
+
+/* ===== Cartes de chiffres ===== */
+.cartes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.carte-stat {
+    background: white;
+    border: 1px solid var(--contour);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.carte-titre {
+    font-size: 14px;
+    color: var(--gris);
+    font-weight: 600;
+}
+
+.carte-chiffre {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--marron-fonce);
+}
+
+/* ===== Commandes ===== */
+.commande {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border: 1px solid var(--contour);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+
+.num {
+    font-weight: 700;
+}
+
+.texte {
+    flex: 1;
+}
+
+.etat {
+    font-size: 12px;
+    color: var(--gris);
+    min-width: 80px;
+    text-align: right;
+}
+
+.etat.accepte {
+    color: #166852;
+    font-weight: 700;
+}
+
+.etat.refuse {
+    color: #C0392B;
+    font-weight: 700;
+}
+
+/* ===== Boutons ===== */
+.btn {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 9px 16px;
+    cursor: pointer;
+    border: 1px solid var(--marron-fonce);
+}
+
+.btn.plein {
+    background: var(--marron-fonce);
+    color: white;
+}
+
+.btn.contour {
+    background: white;
+    color: var(--marron-fonce);
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* ===== Tableau de stocks (pour l'étape suivante) ===== */
+.entete-bloc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.entete-bloc h2 {
+    margin-bottom: 0;
+}
+
+.tableau {
+    background: white;
+    border: 1px solid var(--contour);
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: var(--creme);
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+td {
+    padding: 12px 16px;
+    border-top: 1px solid var(--contour);
+    font-size: 14px;
+}
+
+.pastille {
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.pastille.vert {
+    background: #DCEFD8;
+    color: #27500A;
+}
+
+.pastille.orange {
+    background: #FAEEDA;
+    color: #633806;
+}
+
+.pastille.rouge {
+    background: #FCEBEB;
+    color: #791F1F;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .menu-lateral {
+        width: 180px;
+    }
+
+    .contenu {
+        padding: 24px 20px;
+    }
+
+    .cartes {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .menu-lateral {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .menu-lateral nav {
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+    }
+
+    .nav-item {
+        white-space: nowrap;
+        margin-bottom: 0;
+    }
+
+    .cartes {
+        grid-template-columns: 1fr;
+    }
+
+    .commande {
+        flex-wrap: wrap;
+    }
+
+    .texte {
+        flex-basis: 100%;
+        order: 2;
+    }
+
+    .etat {
+        order: 3;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .commande .btn {
+        order: 4;
+    }
+}

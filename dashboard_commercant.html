@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tableau de bord commerçant</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+
+<body>
+    <div class="layout">
+
+        <aside class="menu-lateral">
+            <div class="logo-dash">CommerceLocal+</div>
+            <nav>
+                <a class="nav-item actif" href="#">🏠 Accueil</a>
+                <a class="nav-item" href="#">🏪 Commandes</a>
+                <a class="nav-item" href="#">📦 Stocks</a>
+                <a class="nav-item" href="#">💬 Avis</a>
+                <a class="nav-item" href="#">⚙️ Paramètres</a>
+            </nav>
+        </aside>
+
+        <main class="contenu">
+            <h1>Tableau de bord commerçant</h1>
+            <p class="commerce">Boulangerie des Lilas</p>
+
+            <section class="cartes">
+                <div class="carte-stat">
+                    <span class="carte-titre">Commandes du jour</span>
+                    <span class="carte-chiffre">12</span>
+                </div>
+                <div class="carte-stat">
+                    <span class="carte-titre">Chiffre d'affaires</span>
+                    <span class="carte-chiffre">340 €</span>
+                </div>
+                <div class="carte-stat">
+                    <span class="carte-titre">Produits en rupture</span>
+                    <span class="carte-chiffre">3</span>
+                </div>
+            </section>
+            <section class="bloc">
+                <h2>Commandes à traiter</h2>
+
+                <div class="commande">
+                    <span class="num">#1042</span>
+                    <span class="texte">Marie L. · 2 baguettes, 1 tarte · Retrait 17h30</span>
+                    <span class="etat">En attente</span>
+                    <button class="btn plein">Accepter</button>
+                    <button class="btn contour">Refuser</button>
+                </div>
+
+                <div class="commande">
+                    <span class="num">#1043</span>
+                    <span class="texte">Karim B. · 1 pain complet · Retrait 18h00</span>
+                    <span class="etat">En attente</span>
+                    <button class="btn plein">Accepter</button>
+                    <button class="btn contour">Refuser</button>
+                </div>
+
+                <div class="commande">
+                    <span class="num">#1044</span>
+                    <span class="texte">Sophie D. · 6 croissants · Livraison 18h30</span>
+                    <span class="etat">En attente</span>
+                    <button class="btn plein">Accepter</button>
+                    <button class="btn contour">Refuser</button>
+                </div>
+            </section>
+        </main>
+
+    </div>
+    <script src="js/dashboard.js" charset="UTF-8" defer></script>
+</body>
+
+</html>
