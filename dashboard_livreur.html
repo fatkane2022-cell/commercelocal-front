@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tableau de bord livreur</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/dashboard.js" charset="UTF-8" defer></script>
+</head>
+
+<body>
+    <div class="layout">
+
+        <aside class="menu-lateral">
+            <div class="logo-dash">CommerceLocal+</div>
+            <nav>
+                <a class="nav-item actif" href="dashboard_livreur.html">🏠 Accueil</a>
+                <a class="nav-item" href="#livraisons">🚚 Livraisons</a>
+                <a class="nav-item" href="#historique">🕘 Historique</a>
+                <a class="nav-item" href="#">💬 Avis</a>
+                <a class="nav-item" href="#">⚙️ Paramètres</a>
+            </nav>
+        </aside>
+
+        <main class="contenu">
+            <h1>Tableau de bord livreur</h1>
+            <p class="commerce">Karim, livreur</p>
+
+            <section class="cartes">
+                <div class="carte-stat">
+                    <span class="carte-titre">Livraisons du jour</span>
+                    <span class="carte-chiffre">5</span>
+                </div>
+                <div class="carte-stat">
+                    <span class="carte-titre">Gains du jour</span>
+                    <span class="carte-chiffre">48 €</span>
+                </div>
+                <div class="carte-stat">
+                    <span class="carte-titre">En cours</span>
+                    <span class="carte-chiffre">1</span>
+                </div>
+            </section>
+
+            <section class="bloc" id="livraisons">
+                <h2>Livraisons disponibles</h2>
+
+                <div class="commande">
+                    <span class="num">#1051</span>
+                    <span class="texte">12 rue des Lilas · Créneau 17h30</span>
+                    <span class="etat">Disponible</span>
+                    <button class="btn plein">Accepter</button>
+                    <button class="btn contour">Ignorer</button>
+                </div>
+
+                <div class="commande">
+                    <span class="num">#1052</span>
+                    <span class="texte">8 avenue Gambetta · Créneau 18h00</span>
+                    <span class="etat">Disponible</span>
+                    <button class="btn plein">Accepter</button>
+                    <button class="btn contour">Ignorer</button>
+                </div>
+
+                <div class="commande">
+                    <span class="num">#1053</span>
+                    <span class="texte">3 place du Marché · Créneau 18h30</span>
+                    <span class="etat">Disponible</span>
+                    <button class="btn plein">Accepter</button>
+                    <button class="btn contour">Ignorer</button>
+                </div>
+            </section>
+
+            <section class="bloc" id="historique">
+                <div class="entete-bloc">
+                    <h2>Historique</h2>
+                </div>
+                <div class="tableau">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Adresse</th>
+                                <th>Créneau</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>13/11</td>
+                                <td>5 rue Pasteur</td>
+                                <td>17h00</td>
+                                <td><span class="pastille vert">Livrée</span></td>
+                            </tr>
+                            <tr>
+                                <td>13/11</td>
+                                <td>21 boulevard Voltaire</td>
+                                <td>16h30</td>
+                                <td><span class="pastille vert">Livrée</span></td>
+                            </tr>
+                            <tr>
+                                <td>12/11</td>
+                                <td>9 impasse des Fleurs</td>
+                                <td>18h00</td>
+                                <td><span class="pastille vert">Livrée</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+    </div>
+</body>
+
+</html>
