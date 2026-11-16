@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tableau de bord administrateur</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/dashboard.js" charset="UTF-8" defer></script>
+</head>
+
+<body>
+    <div class="layout">
+
+        <aside class="menu-lateral">
+            <div class="logo-dash">CommerceLocal+</div>
+            <nav>
+                <a class="nav-item actif" href="dashboard_admin.html">🏠 Accueil</a>
+                <a class="nav-item" href="#commerces">🏪 Commerces</a>
+                <a class="nav-item" href="#comptes">👥 Comptes</a>
+                <a class="nav-item" href="#">💬 Avis</a>
+                <a class="nav-item" href="#">⚙️ Paramètres</a>
+                <a class="nav-item" href="dashboard_commercant.html">🧑‍🍳 Vue commerçant</a>
+                <a class="nav-item" href="dashboard_livreur.html">🚚 Vue livreur</a>
+                <a class="nav-item" href="dashboard_admin.html">🛡️ Vue admin</a>
+            </nav>
+        </aside>
+
+        <main class="contenu">
+            <h1>Tableau de bord administrateur</h1>
+            <p class="commerce">Administration CommerceLocal+</p>
+
+            <section class="cartes">
+                <div class="carte-stat">
+                    <span class="carte-titre">Commerces en attente</span>
+                    <span class="carte-chiffre">4</span>
+                </div>
+                <div class="carte-stat">
+                    <span class="carte-titre">Utilisateurs</span>
+                    <span class="carte-chiffre">320</span>
+                </div>
+                <div class="carte-stat">
+                    <span class="carte-titre">Avis signalés</span>
+                    <span class="carte-chiffre">2</span>
+                </div>
+            </section>
+
+            <section class="bloc" id="commerces">
+                <h2>Commerces à valider</h2>
+
+                <div class="commande">
+                    <span class="num">#C21</span>
+                    <span class="texte">Fromagerie du Marché · Lyon</span>
+                    <span class="etat">En attente</span>
+                    <button class="btn plein">Valider</button>
+                    <button class="btn contour">Rejeter</button>
+                </div>
+
+                <div class="commande">
+                    <span class="num">#C22</span>
+                    <span class="texte">Fleuriste Rose &amp; Co · Paris</span>
+                    <span class="etat">En attente</span>
+                    <button class="btn plein">Valider</button>
+                    <button class="btn contour">Rejeter</button>
+                </div>
+
+                <div class="commande">
+                    <span class="num">#C23</span>
+                    <span class="texte">Épicerie Bio Verte · Nantes</span>
+                    <span class="etat">En attente</span>
+                    <button class="btn plein">Valider</button>
+                    <button class="btn contour">Rejeter</button>
+                </div>
+            </section>
+
+            <section class="bloc" id="comptes">
+                <div class="entete-bloc">
+                    <h2>Comptes</h2>
+                </div>
+                <div class="tableau">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Rôle</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Marie L.</td>
+                                <td>Client</td>
+                                <td><span class="pastille vert">Actif</span></td>
+                            </tr>
+                            <tr>
+                                <td>Karim B.</td>
+                                <td>Livreur</td>
+                                <td><span class="pastille vert">Actif</span></td>
+                            </tr>
+                            <tr>
+                                <td>Boulangerie des Lilas</td>
+                                <td>Commerçant</td>
+                                <td><span class="pastille orange">En attente</span></td>
+                            </tr>
+                            <tr>
+                                <td>Paul R.</td>
+                                <td>Client</td>
+                                <td><span class="pastille rouge">Suspendu</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+    </div>
+</body>
+
+</html>
