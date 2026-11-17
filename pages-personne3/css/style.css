@@ -1,0 +1,981 @@
+/* style des pages accueil, fiche commerce et panier - Personne 3 */
+/* le fond, l'en-tête, le pied de page et les boutons viennent de connexion.css */
+
+/* en-tête transparent sur toute la largeur */
+.entete {
+  background: transparent;
+}
+
+/* petit chiffre rond sur l'icône du panier */
+.lien-panier {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  min-width: 18px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  background: var(--orange);
+  color: var(--blanc);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* bouton menu, visible seulement sur téléphone */
+.bouton-menu {
+  display: none;
+  border: none;
+  background: none;
+  color: var(--blanc);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* contenu de la page */
+.page-site {
+  flex: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 36px 40px 60px;
+}
+
+.page-site section {
+  margin-bottom: 44px;
+}
+
+/* titres blancs posés sur le fond coloré */
+.titre-section,
+.titre-page-site {
+  font-size: 26px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.titre-page-site {
+  font-size: 34px;
+}
+
+.sous-titre-section {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+/* bouton plus petit pour les cartes */
+.bouton-plein.petit,
+.bouton-contour.petit {
+  display: inline-block;
+  width: auto;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+/* ---------- page accueil ---------- */
+
+/* grande bannière : la photo prend toute la place, le texte est posé dessus */
+.hero {
+  position: relative;
+  min-height: 440px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  animation: apparition 0.8s ease both;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  animation: zoom-lent 20s ease-in-out infinite alternate;
+}
+
+/* la photo grossit très lentement */
+@keyframes zoom-lent {
+  to { transform: scale(1.15); }
+}
+
+/* voile sombre à gauche pour bien lire le texte */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(43, 29, 20, 0.92) 0%, rgba(43, 29, 20, 0.7) 45%, rgba(43, 29, 20, 0) 80%);
+}
+
+.hero-texte {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: 48px 56px;
+}
+
+.hero h1 {
+  font-size: 46px;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.hero h1 span {
+  color: var(--orange);
+}
+
+.hero-texte > p:not(.badge) {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.hero-boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* bouton transparent effet verre */
+.bouton-verre {
+  display: inline-block;
+  height: 40px;
+  line-height: 38px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  color: var(--blanc);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.bouton-verre:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* trois chiffres clés sous la bannière */
+.chiffres-cles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0 44px;
+}
+
+.chiffres-cles div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  animation: monte 0.7s ease both;
+}
+
+.chiffres-cles div:nth-child(2) { animation-delay: 0.15s; }
+.chiffres-cles div:nth-child(3) { animation-delay: 0.3s; }
+
+.chiffres-cles strong {
+  font-size: 34px;
+  color: var(--orange);
+}
+
+.chiffres-cles span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* titre de section avec un lien "Voir tout" à droite */
+.entete-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4px;
+}
+
+.voir-tout {
+  color: var(--orange);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.voir-tout:hover {
+  text-decoration: underline;
+}
+
+/* catégories : une photo avec le nom écrit dessus */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.categories a {
+  position: relative;
+  height: 140px;
+  border-radius: 16px;
+  overflow: hidden;
+  color: var(--blanc);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.categories a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), 0 0 0 3px var(--orange);
+}
+
+.categories img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+/* la photo zoome au survol */
+.categories a:hover img {
+  transform: scale(1.12);
+}
+
+/* voile sombre en bas pour lire le nom */
+.categories a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(43, 29, 20, 0.85) 0%, rgba(43, 29, 20, 0) 60%);
+}
+
+.categories b {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 1;
+  font-size: 15px;
+}
+
+/* cartes des commerces */
+.commerces {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.commerce {
+  animation: monte 0.7s ease both;
+  background: var(--blanc);
+  color: var(--texte);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.commerce:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* photo du commerce avec la distance et le coeur posés dessus */
+.commerce-photo {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+}
+
+.commerce-photo img,
+.carte-quartier > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+
+/* la photo zoome un peu au survol */
+.commerce:hover .commerce-photo img {
+  transform: scale(1.1);
+}
+
+.distance {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(43, 29, 20, 0.7);
+  backdrop-filter: blur(4px);
+  color: var(--blanc);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.favori {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--marron);
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.favori:hover {
+  transform: scale(1.15);
+}
+
+.favori.aime {
+  background: var(--orange);
+  color: var(--blanc);
+}
+
+.commerce-infos {
+  padding: 14px;
+}
+
+.commerce h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.commerce p {
+  font-size: 13px;
+  color: var(--gris);
+  margin-bottom: 4px;
+}
+
+.commerce .bouton-plein {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.etoiles {
+  color: #E0A030 !important;
+}
+
+.etoiles small {
+  color: var(--gris);
+}
+
+/* les cartes arrivent l'une après l'autre */
+.commerce:nth-child(2) { animation-delay: 0.1s; }
+.commerce:nth-child(3) { animation-delay: 0.2s; }
+.commerce:nth-child(4) { animation-delay: 0.3s; }
+.commerce:nth-child(5) { animation-delay: 0.4s; }
+
+/* carte du quartier : l'image prend toute la place */
+.carte-quartier {
+  position: relative;
+}
+
+.carte-quartier .bouton-contour {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* comment ça marche : 3 cartes en verre */
+.trois-etapes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.etape-site {
+  padding: 26px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.etape-site:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.etape-site h3 {
+  font-size: 17px;
+  margin: 16px 0 8px;
+}
+
+.etape-site p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------- page fiche commerce ---------- */
+
+/* photo de la vitrine avec le slogan par-dessus */
+.banniere {
+  position: relative;
+  height: 260px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  animation: apparition 0.7s ease both;
+}
+
+.banniere img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoom-lent 20s ease-in-out infinite alternate;
+}
+
+.banniere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(43, 29, 20, 0.85) 0%, rgba(43, 29, 20, 0) 65%);
+}
+
+.banniere-texte {
+  position: absolute;
+  left: 36px;
+  bottom: 70px;
+  z-index: 1;
+}
+
+.banniere-texte span {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+
+.banniere-texte strong {
+  font-size: 30px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* les blocs blancs remontent un peu sur la photo */
+.bloc-remonte {
+  margin-top: -50px;
+  z-index: 2;
+}
+
+/* bloc blanc avec la bande orange (même style que les pages connexion et paiement) */
+.bloc-blanc {
+  background: var(--blanc);
+  color: var(--texte);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: apparition 0.7s ease both;
+}
+
+.bloc-blanc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--marron), var(--orange));
+}
+
+/* produits à gauche, avis à droite */
+.colonnes-fiche {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+.profil {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.logo-commerce {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  border: 4px solid #F6EFE9;
+  box-shadow: 0 6px 16px rgba(133, 85, 65, 0.35);
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--marron);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.profil h1 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.profil p {
+  font-size: 13px;
+  color: var(--gris);
+  margin-bottom: 2px;
+}
+
+.profil .ouvert {
+  color: #166852;
+  font-weight: 600;
+}
+
+.note {
+  margin-left: auto;
+  text-align: center;
+  font-size: 20px !important;
+  font-weight: 700;
+  color: var(--texte) !important;
+}
+
+.note small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gris);
+}
+
+.description {
+  margin: 16px 0 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--gris);
+}
+
+/* onglets Produits / Avis / Informations */
+.onglets {
+  display: flex;
+  border-bottom: 1px solid var(--contour);
+  margin: 16px 0 20px;
+}
+
+.onglet {
+  padding: 12px 20px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gris);
+  cursor: pointer;
+}
+
+.onglet.actif {
+  color: var(--marron-fonce);
+  border-bottom-color: var(--orange);
+}
+
+/* sert à cacher un onglet */
+.cache {
+  display: none;
+}
+
+/* grille des produits */
+.produits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.produit {
+  border: 1px solid #EEE7DE;
+  border-radius: 14px;
+  overflow: hidden;
+  padding-bottom: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.produit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(48, 39, 31, 0.12);
+}
+
+.produit-photo {
+  height: 140px;
+  overflow: hidden;
+}
+
+.produit-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.produit:hover .produit-photo img {
+  transform: scale(1.1);
+}
+
+.produit h3 {
+  font-size: 14px;
+  margin: 10px 12px 2px;
+}
+
+.produit p {
+  font-size: 14px;
+  color: var(--marron);
+  font-weight: 700;
+  margin: 0 12px 10px;
+}
+
+.produit .bouton-plein {
+  width: calc(100% - 24px);
+  margin: 0 12px;
+  font-size: 13px;
+}
+
+/* avis clients */
+.bloc-blanc h2 {
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+
+.avis {
+  padding: 14px 0;
+  border-top: 1px solid #EEE7DE;
+  font-size: 13px;
+}
+
+.avis p {
+  color: var(--gris);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.avis small {
+  color: var(--gris);
+  font-size: 11px;
+}
+
+/* petit message qui apparaît en bas quand on ajoute un produit */
+.notification {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: var(--blanc);
+  color: var(--texte);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, 150%);
+  transition: transform 0.4s;
+}
+
+.notification.visible {
+  transform: translate(-50%, 0);
+}
+
+.notification a {
+  color: var(--marron);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ---------- page panier ---------- */
+
+/* liste des produits à gauche, récapitulatif à droite */
+.colonnes-panier {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+.commerce-panier + .commerce-panier {
+  margin-top: 22px;
+}
+
+.commerce-panier h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* petit rond vert devant le nom du commerce */
+.commerce-panier h2::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #166852;
+  box-shadow: 0 0 0 4px #EAF5F0;
+}
+
+.ligne-panier {
+  animation: monte 0.5s ease both;
+}
+
+/* une ligne du panier */
+.ligne-panier {
+  display: grid;
+  grid-template-columns: 90px 1fr auto 80px auto;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #EEE7DE;
+}
+
+.ligne-panier img {
+  width: 90px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.ligne-panier small {
+  display: block;
+  color: var(--gris);
+  margin-top: 4px;
+}
+
+.prix-ligne {
+  text-align: right;
+}
+
+/* boutons - et + pour la quantité */
+.quantite {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--contour);
+  border-radius: 10px;
+  height: 38px;
+}
+
+.quantite button {
+  border: none;
+  background: none;
+  width: 34px;
+  height: 100%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.quantite span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.supprimer {
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: var(--gris);
+  cursor: pointer;
+}
+
+.supprimer:hover {
+  color: #C0392B;
+}
+
+/* message quand le panier est vide */
+.panier-vide {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.panier-vide div {
+  font-size: 42px;
+}
+
+.panier-vide p {
+  color: var(--gris);
+  margin: 6px 0 18px;
+}
+
+/* récapitulatif */
+.recap-panier .ligne {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.recap-panier .total {
+  margin: 8px 0 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--contour);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.recap-panier .petit-texte {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--gris);
+  text-align: center;
+}
+
+/* bouton grisé quand le panier est vide */
+#commander.vide {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.lien-retour-site {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--blanc);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lien-retour-site:hover {
+  color: var(--orange);
+}
+
+/* ---------- responsive ---------- */
+
+/* petit ordinateur */
+@media (max-width: 1100px) {
+  .commerces {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .colonnes-fiche {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* tablette */
+@media (max-width: 900px) {
+  .page-site {
+    padding: 28px 20px 40px;
+  }
+
+  .hero::after {
+    background: linear-gradient(90deg, rgba(43, 29, 20, 0.9), rgba(43, 29, 20, 0.6));
+  }
+
+  .chiffres-cles,
+  .trois-etapes {
+    grid-template-columns: 1fr;
+  }
+
+  .categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .commerces {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .colonnes-panier {
+    grid-template-columns: 1fr;
+  }
+
+  .entete {
+    background: var(--marron);
+  }
+}
+
+/* téléphone */
+@media (max-width: 600px) {
+  .bouton-menu {
+    display: block;
+  }
+
+  .entete {
+    flex-wrap: wrap;
+  }
+
+  /* le menu s'affiche en dessous quand on clique sur ☰ */
+  .menu.ouvert {
+    display: flex;
+    order: 5;
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 10px;
+  }
+
+  .hero-texte {
+    padding: 32px 22px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .entete-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .banniere-texte strong {
+    font-size: 22px;
+  }
+
+  .banniere-texte {
+    left: 20px;
+  }
+
+  .produits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profil {
+    flex-wrap: wrap;
+  }
+
+  .note {
+    margin-left: 88px;
+  }
+
+  .ligne-panier {
+    grid-template-columns: 70px 1fr auto;
+  }
+
+  .ligne-panier img {
+    width: 70px;
+    height: 54px;
+  }
+
+  .prix-ligne {
+    display: none;
+  }
+
+  .quantite {
+    grid-column: 2;
+    width: max-content;
+  }
+
+  .supprimer {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}

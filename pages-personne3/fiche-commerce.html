@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boulangerie des Lilas - CommerceLocal+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- connexion.css pour le fond, l'en-tête, le pied de page et les boutons (commun au site) -->
+  <link rel="stylesheet" href="css/connexion.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="fiche">
+
+  <!-- taches de couleur floues qui bougent doucement derrière la page -->
+  <div class="fond-couleurs">
+    <span class="tache tache-1"></span>
+    <span class="tache tache-2"></span>
+    <span class="tache tache-3"></span>
+    <span class="tache tache-4"></span>
+  </div>
+
+  <!-- en-tête -->
+  <header class="entete">
+    <a href="index.html" class="logo">
+      <img src="images/logo.svg" alt="" onerror="this.remove()">
+      CommerceLocal+
+    </a>
+    <nav class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#commerces">Commerces</a>
+      <a href="index.html#categories">Catégories</a>
+    </nav>
+    <button class="bouton-menu" type="button">☰</button>
+    <input type="search" class="recherche" placeholder="Rechercher un commerce, un produit...">
+    <div class="icones">
+      <a href="index.html#commerces" title="Commerces autour de moi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></a>
+      <a href="panier.html" title="Mon panier" class="lien-panier"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l2.5 11h11L21 7H6.5"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><b class="cart-count">0</b></a>
+      <a href="connexion.html" title="Mon compte"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></a>
+    </div>
+  </header>
+
+  <main class="page-site">
+
+    <!-- photo de la boutique avec le slogan par-dessus -->
+    <div class="banniere">
+      <img src="images/banniere.jpg" alt="Vitrine de la Boulangerie des Lilas">
+      <div class="banniere-texte">
+        <span>BOULANGERIE ARTISANALE</span>
+        <strong>Le goût du bon pain, chaque jour.</strong>
+      </div>
+    </div>
+
+    <div class="colonnes-fiche">
+      <section class="bloc-blanc bloc-remonte">
+
+        <!-- infos du commerce -->
+        <div class="profil">
+          <img class="logo-commerce" src="images/logo-boulangerie.svg" alt="Logo de la Boulangerie des Lilas">
+          <div>
+            <h1>Boulangerie des Lilas</h1>
+            <p>Boulangerie · 0,8 km</p>
+            <p>Horaires : 7h00 – 19h30 · Fermé le dimanche</p>
+            <p class="ouvert">● Ouvert actuellement</p>
+          </div>
+          <p class="note"><span class="etoiles">★</span> 4,7/5<small>124 avis</small></p>
+        </div>
+        <p class="description">Des pains au levain, des viennoiseries et des pâtisseries préparés chaque jour avec des ingrédients de qualité.</p>
+
+        <!-- onglets -->
+        <div class="onglets">
+          <button class="onglet actif" data-onglet="produits">Produits</button>
+          <button class="onglet" data-onglet="avis">Avis</button>
+          <button class="onglet" data-onglet="infos">Informations</button>
+        </div>
+
+        <!-- onglet produits -->
+        <div id="produits" class="panneau">
+          <div class="produits">
+
+            <article class="produit">
+              <div class="produit-photo"><img src="images/pain-complet.jpg" alt="Pain complet"></div>
+              <h3>Pain complet</h3>
+              <p>2,50 €</p>
+              <button class="bouton-plein petit ajouter" data-produit="pain-complet">Ajouter au panier +</button>
+            </article>
+
+            <article class="produit">
+              <div class="produit-photo"><img src="images/croissant.jpg" alt="Croissant"></div>
+              <h3>Croissant</h3>
+              <p>1,20 €</p>
+              <button class="bouton-plein petit ajouter" data-produit="croissant">Ajouter au panier +</button>
+            </article>
+
+            <article class="produit">
+              <div class="produit-photo"><img src="images/pain-chocolat.jpg" alt="Pain au chocolat"></div>
+              <h3>Pain au chocolat</h3>
+              <p>1,35 €</p>
+              <button class="bouton-plein petit ajouter" data-produit="pain-chocolat">Ajouter au panier +</button>
+            </article>
+
+            <article class="produit">
+              <div class="produit-photo"><img src="images/tarte-pommes.jpg" alt="Tarte aux pommes"></div>
+              <h3>Tarte aux pommes</h3>
+              <p>3,80 €</p>
+              <button class="bouton-plein petit ajouter" data-produit="tarte-pommes">Ajouter au panier +</button>
+            </article>
+
+            <article class="produit">
+              <div class="produit-photo"><img src="images/eclair.jpg" alt="Éclair au chocolat"></div>
+              <h3>Éclair au chocolat</h3>
+              <p>2,80 €</p>
+              <button class="bouton-plein petit ajouter" data-produit="eclair">Ajouter au panier +</button>
+            </article>
+
+            <article class="produit">
+              <div class="produit-photo"><img src="images/macarons.jpg" alt="Macarons (x6)"></div>
+              <h3>Macarons (x6)</h3>
+              <p>6,50 €</p>
+              <button class="bouton-plein petit ajouter" data-produit="macarons">Ajouter au panier +</button>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- onglet avis -->
+        <div id="avis" class="panneau cache">
+          <div class="avis"><b>Sophie L. <span class="etoiles">★★★★★</span></b><p>Très bonne boulangerie, les produits sont frais et délicieux !</p></div>
+          <div class="avis"><b>Thomas R. <span class="etoiles">★★★★☆</span></b><p>Le pain complet est une tuerie, je recommande !</p></div>
+          <div class="avis"><b>Inès D. <span class="etoiles">★★★★★</span></b><p>Accueil chaleureux et produits de qualité !</p></div>
+        </div>
+
+        <!-- onglet informations -->
+        <div id="infos" class="panneau cache">
+          <div class="avis">
+            <p>Adresse : 12 rue des Lilas, 95380</p>
+            <p>Horaires : du lundi au samedi, 7h00 – 19h30</p>
+            <p>Services : retrait en boutique et livraison dans le quartier</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- avis clients à droite -->
+      <aside class="bloc-blanc bloc-remonte">
+        <h2>Avis clients</h2>
+        <p class="etoiles">★★★★★ <small>4,7/5 · 124 avis</small></p>
+        <div class="avis"><b>Sophie L.</b><p>Très bonne boulangerie, les produits sont frais et délicieux !</p><small>Il y a 3 jours</small></div>
+        <div class="avis"><b>Thomas R.</b><p>Le pain complet est une tuerie, je recommande !</p><small>Il y a 1 semaine</small></div>
+        <div class="avis"><b>Inès D.</b><p>Accueil chaleureux et produits de qualité !</p><small>Il y a 2 semaines</small></div>
+      </aside>
+    </div>
+
+  </main>
+
+  <!-- pied de page -->
+  <footer class="pied">
+    <div class="pied-colonnes">
+      <div class="pied-colonne">
+        <p class="pied-logo">CommerceLocal+</p>
+        <p>La marketplace des commerçants de votre quartier : un seul panier, un seul paiement, un seul créneau.</p>
+        <!-- réseaux sociaux -->
+        <div class="reseaux">
+          <a href="#" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+          <a href="#" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+          <a href="#" title="E-mail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        </div>
+      </div>
+      <div class="pied-colonne">
+        <p class="pied-titre">Découvrir</p>
+        <a href="index.html">Accueil</a>
+        <a href="index.html#commerces">Commerces</a>
+        <a href="index.html#categories">Catégories</a>
+      </div>
+      <div class="pied-colonne">
+        <p class="pied-titre">Mon compte</p>
+        <a href="connexion.html">Se connecter</a>
+        <a href="inscription.html">Créer un compte</a>
+        <a href="dashboard-client.html">Mon tableau de bord</a>
+      </div>
+      <div class="pied-colonne">
+        <p class="pied-titre">Espaces pro</p>
+        <a href="dashboard-commercant.html">Commerçant</a>
+        <a href="dashboard-livreur.html">Livreur</a>
+        <a href="dashboard-admin.html">Administrateur</a>
+      </div>
+      <div class="pied-colonne">
+        <p class="pied-titre">Aide</p>
+        <a href="#">Contact</a>
+        <a href="#">Questions fréquentes</a>
+        <a href="#">Conditions d'utilisation</a>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+    <p class="pied-bas">© 2026 CommerceLocal+ · Projet ECE B2 Data &amp; IA</p>
+  </footer>
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>
